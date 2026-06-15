@@ -33,7 +33,7 @@
             font-weight: 600;
             color: #444;
         }
-        input, select, textarea { 
+        input, textarea { 
             width: 100%; 
             padding: 10px; 
             border: 1px solid #ccc;
@@ -68,7 +68,6 @@
         <h2>Opinião sobre o Quiz</h2>
          
         <form id="meuFormulario">
-
             <div class="campo">
                 <label for="nome">Nome do Aluno:</label>
                 <input type="text" id="nome" name="Nome" required placeholder="Digite o nome completo">
@@ -95,18 +94,17 @@
 
 <script>
 document.getElementById('meuFormulario').addEventListener('submit', function(e) {
-    e.preventDefault(); // Agora sim ele vai travar o macaco de lençol!
+    e.preventDefault(); // Bloqueia o redirecionamento do SheetMonkey
     
     const formData = new FormData(this);
     
-    // Envia para o seu link do SheetMonkey em segundo plano
     fetch('https://api.sheetmonkey.io/form/7so8pGSpgGx1Mec1vMAKgc', {
         method: 'POST',
         body: formData
     })
     .then(() => {
-        // Redireciona direto para o seu gato feliz
-        window.location.href = 'https://formulariomick205.netlify.app/gatofeliz.html';
+        // Vai direto para o gato feliz sem passar pela tela do macaco
+        window.location.href = 'gatofeliz.html';
     })
     .catch(error => {
         alert('Ops, ocorreu um erro ao enviar. Tente novamente!');
