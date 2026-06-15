@@ -94,6 +94,27 @@
             <button type="submit">Enviar Resposta</button>
         </form>
     </div>
-
+<script>
+document.getElementById('meuFormulario').addEventListener('submit', function(e) {
+    e.preventDefault(); // Impede a página de recarregar ou ir para o SheetMonkey
+    
+    // Pega os dados que o usuário digitou
+    const formData = new FormData(this);
+    
+    // Envia os dados para o SheetMonkey em segundo plano
+    fetch('https://api.sheetmonkey.io/form/7so8pGSpgGx1Mec1vMAKgc', {
+        method: 'POST',
+        body: formData
+    })
+    .then(() => {
+        // Depois que enviar com sucesso, ele te manda direto para o gato feliz!
+        window.location.href = 'https://formulariomick205.netlify.app/gatofeliz.html';
+    })
+    .catch(error => {
+        alert('Ops, ocorreu um erro ao enviar. Tente novamente!');
+        console.error('Erro:', error);
+    });
+});
+</script>
 </body>
 </html>
