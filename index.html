@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário do Quiz</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #f4f7f6;
+            max-width: 450px; 
+            margin: 40px auto; 
+            padding: 20px; 
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        h2 { 
+            margin-top: 0;
+            color: #333;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .campo { 
+            margin-bottom: 20px; /* CORRIGIDO: Estava cortado aqui */
+        }
+        label { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-weight: 600;
+            color: #444;
+        }
+        input, select, textarea { 
+            width: 100%; 
+            padding: 10px; 
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; 
+            font-size: 14px;
+        }
+        input:focus, textarea:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+        button { 
+            background-color: #4CAF50; 
+            color: white; 
+            padding: 12px; 
+            border: none; 
+            border-radius: 4px;
+            width: 100%; 
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer; 
+            transition: background 0.3s;
+        }
+        button:hover { 
+            background-color: #45a049; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Opinião sobre o Quiz</h2>
+         
+        <form action="https://api.sheetmonkey.io/form/7so8pGSpgGx1Mec1vMAKgc" method="POST">
+    
+    <input type="hidden" name="x-sheetmonkey-redirect" value="https://formulariomick205.netlify.app/gatofeliz.html">	
+
+            <div class="campo">
+                <label for="nome">Nome do Aluno:</label>
+                <input type="text" id="nome" name="Nome" required placeholder="Digite o nome completo">
+            </div>
+
+            <div class="campo">
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" name="Idade" min="1" max="100" required placeholder="Ex: 15">
+            </div>
+
+            <div class="campo">
+                <label for="turma">Turma:</label>
+                <input type="text" id="turma" name="Turma" placeholder="Ex: 1º Ano A" required>
+            </div>
+
+            <div class="campo">
+                <label for="opiniao">O que achaste do quiz?</label>
+                <textarea id="opiniao" name="Opiniao" rows="4" placeholder="Deixa aqui a tua opinião ou sugestões..." required></textarea>
+            </div>
+
+            <button type="submit">Enviar Resposta</button>
+        </form>
+    </div>
+
+</body>
+</html>
