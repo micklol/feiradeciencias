@@ -25,7 +25,7 @@
             margin-bottom: 25px;
         }
         .campo { 
-            margin-bottom: 20px; /* CORRIGIDO: Estava cortado aqui */
+            margin-bottom: 20px;
         }
         label { 
             display: block; 
@@ -67,9 +67,7 @@
     <div class="form-container">
         <h2>Opinião sobre o Quiz</h2>
          
-        <form action="https://api.sheetmonkey.io/form/7so8pGSpgGx1Mec1vMAKgc" method="POST">
-    
-    <input type="hidden" name="x-sheetmonkey-redirect" value="https://formulariomick205.netlify.app/gatofeliz.html">	
+        <form id="meuFormulario">
 
             <div class="campo">
                 <label for="nome">Nome do Aluno:</label>
@@ -94,20 +92,20 @@
             <button type="submit">Enviar Resposta</button>
         </form>
     </div>
+
 <script>
 document.getElementById('meuFormulario').addEventListener('submit', function(e) {
-    e.preventDefault(); // Impede a página de recarregar ou ir para o SheetMonkey
+    e.preventDefault(); // Agora sim ele vai travar o macaco de lençol!
     
-    // Pega os dados que o usuário digitou
     const formData = new FormData(this);
     
-    // Envia os dados para o SheetMonkey em segundo plano
+    // Envia para o seu link do SheetMonkey em segundo plano
     fetch('https://api.sheetmonkey.io/form/7so8pGSpgGx1Mec1vMAKgc', {
         method: 'POST',
         body: formData
     })
     .then(() => {
-        // Depois que enviar com sucesso, ele te manda direto para o gato feliz!
+        // Redireciona direto para o seu gato feliz
         window.location.href = 'https://formulariomick205.netlify.app/gatofeliz.html';
     })
     .catch(error => {
